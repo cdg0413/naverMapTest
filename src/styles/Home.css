@@ -1,0 +1,10 @@
+.mapWrap {
+    display: flex;
+    justify-content: center;
+}
+.mapArea {
+    width:80%;
+    height:100vh;
+    min-width:320px;
+    border:1px solid #aaa;
+}

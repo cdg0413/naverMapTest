@@ -1,8 +1,10 @@
 <template>
     <div>
         <!-- Vue + Vite Template -->
-        <h1 style="text-align: center; font-size: 80px">APP</h1>
-        <div>테스트예정</div>
+        <ul class="gnb">
+            <li><router-link to="/home">Home</router-link></li>
+            <li><router-link to="/add">Add</router-link></li>
+        </ul>
         <router-view></router-view>
     </div>
 </template>

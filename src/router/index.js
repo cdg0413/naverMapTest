@@ -17,6 +17,14 @@ const routes = [
             title: 'home',
         },
     },
+    {
+        path: '/add',
+        name: 'add',
+        component: () => import('../views/Add.vue'),
+        meta: {
+            title: 'add',
+        },
+    },
     // // 메인
     // {
     //     path: '/main',
@@ -28,49 +36,6 @@ const routes = [
     //     },
     // },
 
-    // // 로그인
-    // {
-    //     path: '/login',
-    //     name: 'login',
-    //     component: () => import('../views/account/login.vue'),
-    //     meta: {
-    //         title: "login",
-    //         layout: Layout,
-    //     },
-    // },
-
-    // // 비밀번호 찾기
-    // {
-    //     path: '/findPW',
-    //     name: 'findPW',
-    //     component: () => import('../views/account/findPW.vue'),
-    //     meta: {
-    //         title: "Find Password",
-    //         layout: Layout,
-    //     },
-    // },
-
-    // // 비밀번호 재설정
-    // {
-    //     path: '/resetPW',
-    //     name: 'resetPW',
-    //     component: () => import('../views/account/resetPW.vue'),
-    //     meta: {
-    //         title: "Reset Password",
-    //         layout: Layout,
-    //     },
-    // },
-
-    // // 회원가입
-    // {
-    //     path: '/signup',
-    //     name: 'signup',
-    //     component: () => import('../views/account/signup.vue'),
-    //     meta: {
-    //         title: "signup",
-    //         layout: Layout,
-    //     },
-    // },
 ];
 
 const router = createRouter({

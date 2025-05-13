@@ -1,8 +1,12 @@
 <template>
-    <h1 style="text-align: center; font-size: 60px">Home</h1>
+    <div class="mapWrap">
+        <div class="mapArea"></div>
+    </div>
 </template>
 <script>
-    export default {
-        name: 'Home',
-    };
+import '@/styles/Home.css';
+
+export default {
+    name: 'Home',
+};
 </script>
