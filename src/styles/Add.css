@@ -1,5 +1,73 @@
+.controlWrap {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .controlBox {
-    max-width: 1200px;
-    width:100%;
-    background: rgba(255,255,255, 0.12);
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.addBtn {
+    all: unset;
+    cursor: pointer;
+    padding: 6px 24px;
+    border-radius: 24px;
+    background: rgba(18, 240, 110, 0.3);
+    transition: 0.2s;
+}
+.addBtn:hover {
+    background: rgba(54, 148, 93, 0.4);
+}
+.selectedLocation {
+    /* display: none; */
+    position: relative;
+    position: absolute;
+    bottom: -150px;
+    margin-top: 24px;
+}
+.locationTxt {
+    margin-bottom: 24px;
+}
+.addBtn.add {
+    background: rgba(1, 125, 248, 0.3);
+}
+.addBtn.add:hover {
+    background: rgba(0, 87, 173, 0.3);
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+.complete {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -32px;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+}
+.complete.blue {
+    color: rgba(0, 87, 173);
+}
+.complete.red {
+    color: rgb(252, 36, 36);
+}
+.complete.animation {
+    animation: 1.5s ease-out complete both;
+}
+/* prettier-ignore */
+@keyframes complete {
+    0% {opacity: 0;}
+    10% {opacity: 1;}
+    25% {opacity: 1;}
+    37% {opacity: 1;}
+    50% {opacity: 1;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
 }
