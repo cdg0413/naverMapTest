@@ -38,6 +38,7 @@ li {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(14, 92, 47, 0.3);
+    z-index: 9999;
 }
 .gnb a {
     color: #1a1a1a;
