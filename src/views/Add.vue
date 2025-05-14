@@ -16,6 +16,7 @@
 </template>
 <script>
 import '@/styles/Add.css';
+import { supabase } from '@/api/supabase';
 
 export default {
     data() {
@@ -24,7 +25,20 @@ export default {
             isFailVisible: false,
         };
     },
+    mounted() {
+        // this.getList();
+    },
     methods: {
+        async getList() {
+            const { data, error } = await supabase.from('Location').select('*');
+
+            if (error) {
+                console.error(error);
+                return;
+            }
+
+            console.log('data: ', data);
+        },
         triggerCompleteAnimation(isSuccess) {
             if (isSuccess) {
                 this.isCompleteVisible = true;

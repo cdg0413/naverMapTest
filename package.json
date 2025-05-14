@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@primevue/themes": "^4.3.3",
+        "@supabase/supabase-js": "^2.49.4",
         "detect-port": "^2.1.0",
         "mitt": "^3.0.1",
         "primeicons": "^7.0.0",
