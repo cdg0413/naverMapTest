@@ -8,6 +8,9 @@
 <script>
 import '@/styles/Home.css';
 import { supabase } from '@/api/supabase';
+import greenIcon from '@/assets/img/green-icon.svg'
+import redIcon from '@/assets/img/red-icon.svg'
+import yellowIcon from '@/assets/img/yellow-icon.svg'
 
 export default {
     name: 'Home',
@@ -15,6 +18,9 @@ export default {
         return {
             map: null,
             marker: null,
+            greenIcon: greenIcon,
+            redIcon: redIcon,
+            yellowIcon: yellowIcon,
         };
     },
     mounted() {
