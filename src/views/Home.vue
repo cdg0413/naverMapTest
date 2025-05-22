@@ -8,20 +8,28 @@
 <script>
 import '@/styles/Home.css';
 import { supabase } from '@/api/supabase';
-import greenIcon from '@/assets/img/green-icon.svg'
-import redIcon from '@/assets/img/red-icon.svg'
-import yellowIcon from '@/assets/img/yellow-icon.svg'
+import greenIcon from '@/assets/img/green-icon.svg';
+import redIcon from '@/assets/img/red-icon.svg';
+import yellowIcon from '@/assets/img/yellow-icon.svg';
 
 export default {
     name: 'Home',
     data() {
         return {
             map: null,
-            marker: null,
+            markers: [],
             greenIcon: greenIcon,
             redIcon: redIcon,
             yellowIcon: yellowIcon,
         };
+    },
+    watch: {
+        markers: {
+            handler() {
+                console.log("[handler]",this.markers);
+            },
+            deep: true,
+        },
     },
     mounted() {
         // https://navermaps.github.io/maps.js.ncp/docs/tutorial-2-Getting-Started.html
@@ -50,6 +58,12 @@ export default {
             }
 
             console.log('data: ', data);
+            data.forEach((item) => {
+                console.log(item.lat, item.lon, item.status);
+                this.updateMarker(item.id, item.lat, item.lon, item.status);
+            });
+
+            this.addMarkerListToMap();
         },
 
         // changeMarker(lat, lng) {
@@ -57,6 +71,32 @@ export default {
         //     this.marker.setPosition(newPosition); // 마커 위치만 변경
         //     this.map.setCenter(newPosition); // 지도 중심도 같이 이동
         // },
+        updateMarker(id, lat, lon, color) {
+            const marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(lat, lon),
+                map: this.map,
+                icon: {
+                    content: `<img src="${this.getColor(color)}" alt="icon" />`,
+                    size: new naver.maps.Size(30, 30),
+                    anchor: new naver.maps.Point(15, 15),
+                },
+                id: id,
+            });
+            this.markers = [...this.markers, marker];
+        },
+
+        getColor(color) {
+            if (color === '1') return this.greenIcon;
+            if (color === '0') return this.redIcon;
+            return this.yellowIcon;
+        },
+
+        addMarkerListToMap() {
+            console.log("addMarkerListToMap: ",this.markers);
+            this.markers.forEach((marker) => {
+                marker.setMap(this.map);
+            });
+        },
     },
 };
 </script>
